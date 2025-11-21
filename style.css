@@ -13,26 +13,32 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 16px;
-  font-weight: 600;
 }
 
 .nrk-logo {
   height: 28px;
-  margin-right: 25px;
   cursor: pointer;
 }
 
 .header-left {
   display: flex;
   align-items: center;
+  gap: 25px;
 }
 
+/* Desktop meny */
 .menu a {
   color: white;
+  font-weight: 600;
   text-decoration: none;
-  margin-right: 28px;
-  transition: opacity 0.2s;
+  margin-right: 20px;
+}
+
+/* Burger knapp */
+.hamburger {
+  display: none; /* kun mobil */
+  font-size: 30px;
+  cursor: pointer;
 }
 
 .menu a:hover {
@@ -95,6 +101,60 @@
   .news-grid {
     grid-template-columns: repeat(2, 1fr);
   }
+}
+
+/* ===== MOBIL ===== */
+
+@media (max-width: 700px) {
+  /* Skjul desktop-meny */
+  .menu {
+    display: none;
+  }
+
+  /* Skjul logg inn */
+  .login-link,
+  .login-icon {
+    display: none;
+  }
+
+  /* Vis hamburger */
+  .hamburger {
+    display: block;
+  }
+}
+
+/* ===== MOBIL FULLSKJERM-MENY ===== */
+
+.mobile-menu-overlay {
+  position: fixed;
+  top: 60px; /* under header */
+  left: 0;
+  width: 100%;
+  height: calc(100% - 60px);
+  background: white;
+
+  display: none; /* skjult til man trykker */
+  z-index: 999;
+}
+
+.mobile-menu-content {
+  padding: 20px;
+}
+
+.mobile-menu-links a {
+  display: block;
+  padding: 15px 0;
+  font-size: 22px;
+  text-decoration: none;
+  color: black;
+  font-weight: 700;
+}
+
+.close-menu {
+  font-size: 32px;
+  background: none;
+  border: none;
+  cursor: pointer;
 }
 
 @media (max-width: 600px) {
